@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var sword_prefab = preload("res://Prefabs/sword.tscn")
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
@@ -33,7 +35,33 @@ func _physics_process(delta):
 	move_and_slide()
 	
 		
-
+func _process(_delta):
+	if Input.is_action_just_pressed("attack_right") and attacking == false:
+		var sword = sword_prefab.instantiate()
+		sword.position = position
+		get_parent().add_child(sword)
+		attacking = true
+		await get_tree().create_timer(0.5).timeout
+		attacking = false
+	if Input.is_action_just_pressed("attack_left") and attacking == false:
+		var sword = sword_prefab.instantiate()
+		sword.position = position
+		sword.position.x -= 1
+		sword.scale.x = -1.000001
+		get_parent().add_child(sword)
+		attacking = true
+		await get_tree().create_timer(0.5).timeout
+		attacking = false
+		
+	if Input.is_action_just_pressed("attack_up") and attacking == false:
+		var sword = sword_prefab.instantiate()
+		sword.position = position
+		sword.position.x -= 1
+		sword.scale.x = -1
+		get_parent().add_child(sword)
+		attacking = true
+		await get_tree().create_timer(0.5).timeout
+		attacking = false
 
 func jump_cut():
 	if velocity.y < 0:

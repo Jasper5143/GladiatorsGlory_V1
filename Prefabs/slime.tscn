@@ -1,29 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxkuw6jdlg7l3"]
 
+[ext_resource type="Script" path="res://Scripts/slime.gd" id="1_lf1ka"]
 [ext_resource type="Texture2D" uid="uid://3xvvuxc834mp" path="res://Sprites/Gladiator sprite 4-6.png (1).png" id="2_s1gwp"]
-
-[sub_resource type="GDScript" id="GDScript_ptyn8"]
-script/source = "extends Node2D
-
-signal enemy_killed
-
-@onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
-#speed in px per second
-@export var speed = 100
-#kills player (sends to death screen)
-
-func _process(delta: float) -> void:
-	path_follow.progress += speed * delta
-
-
-
-
-func _on_area_2d_body_entered(body):
-	if body.name == \"Player\":
-		get_tree().change_scene_to_file(\"res://Levels/death_screen.tscn\")
-	
-
-"
 
 [sub_resource type="Curve2D" id="Curve2D_5cfq3"]
 _data = {
@@ -36,7 +14,7 @@ size = Vector2(229.856, 95.7882)
 
 [node name="slime" type="Node2D"]
 position = Vector2(96, -51)
-script = SubResource("GDScript_ptyn8")
+script = ExtResource("1_lf1ka")
 metadata/_edit_group_ = true
 
 [node name="Path2D" type="Path2D" parent="."]

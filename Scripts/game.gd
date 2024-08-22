@@ -2,7 +2,7 @@ extends Node2D
 var wave = 0
 var kills = 0
 
-
+@onready var skeleton_prefab = preload("res://Prefabs/skeleton.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +23,7 @@ func _on_slime_enemy_killed():
 	if wave == 1:
 		print("bones")
 		print("test")
-		
+		skeleton_prefab.instantiate()
 		
 func _process(delta):
 	pass
