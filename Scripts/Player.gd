@@ -34,6 +34,7 @@ func _physics_process(delta):
 	
 		
 
+
 func jump_cut():
 	if velocity.y < 0:
 		velocity.y = 2
