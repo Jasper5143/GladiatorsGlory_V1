@@ -1,78 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://besojl7vkjoxk"]
+[gd_scene load_steps=11 format=3 uid="uid://besojl7vkjoxk"]
 
 [ext_resource type="PackedScene" uid="uid://ndrofknvi3dk" path="res://Prefabs/character_body_2d.tscn" id="1_cdqqj"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gfc5p"]
-[ext_resource type="Texture2D" uid="uid://5q708ufx0dpf" path="res://icon.svg" id="3_ib74t"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_75mb0"]
-load_path = "res://.godot/imported/icon.svg-b67cfb692a937e61d2bda8561d9e8db7.ctex"
+[ext_resource type="Texture2D" uid="uid://cg341p3gbn7f6" path="res://Sprites/icon.svg" id="2_yxac3"]
+[ext_resource type="PackedScene" uid="uid://dxkuw6jdlg7l3" path="res://Prefabs/slime.tscn" id="3_c1j6r"]
+[ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="4_jjmsj"]
+[ext_resource type="Texture2D" uid="uid://bv7eowyskvqr3" path="res://Sprites/New Piskel (3).png" id="5_nr1v2"]
+[ext_resource type="AudioStream" uid="uid://yrj4monfxfsa" path="res://Audio/Mark Wilson X - In the Hall of the Mountain King.mp3" id="7_850ex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2qa6"]
-texture = SubResource("CompressedTexture2D_75mb0")
+texture = ExtResource("2_yxac3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wa8j"]
-texture = ExtResource("3_ib74t")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-3:2/0 = 0
-3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:2/0/physics_layer_0/angular_velocity = 0.0
-0:3/0 = 0
-0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:3/0/physics_layer_0/angular_velocity = 0.0
-1:3/0 = 0
-1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:3/0/physics_layer_0/angular_velocity = 0.0
-2:3/0 = 0
-2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:3/0/physics_layer_0/angular_velocity = 0.0
-3:3/0 = 0
-3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:3/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nkuxc"]
-load_path = "res://.godot/imported/New Piskel (3).png-465593a5f69bc353ab23f588ea0f0d12.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_durva"]
-texture = SubResource("CompressedTexture2D_nkuxc")
+texture = ExtResource("5_nr1v2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -96,7 +41,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_b2qa6")
 sources/3 = SubResource("TileSetAtlasSource_durva")
-sources/1 = SubResource("TileSetAtlasSource_1wa8j")
 
 [node name="Game" type="Node2D"]
 position = Vector2(388, 231)
@@ -108,4 +52,55 @@ position = Vector2(-276, 332)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_p0bjs")
 format = 2
-layer_0/tile_data = PackedInt32Array(786420, 1, 0, 720884, 1, 0, 655348, 1, 0, 589812, 1, 0, 524276, 1, 0, 458740, 1, 0, 393204, 1, 0, 327668, 1, 0, 262132, 1, 0, 196596, 1, 0, 131060, 1, 0, 65524, 1, 0, -12, 1, 0, -65548, 1, 0, -131084, 1, 0, -196620, 1, 0, -262156, 1, 0, -327692, 1, 0, -393228, 1, 0, -393227, 1, 0, -393226, 1, 0, -393225, 1, 0, -393224, 1, 0, -393223, 1, 0, -393222, 1, 0, -393221, 1, 0, -393220, 1, 0, -393219, 1, 0, -393218, 1, 0, -393217, 1, 0, -458752, 1, 0, -458751, 1, 0, -458750, 1, 0, -458749, 1, 0, -458748, 1, 0, -458747, 1, 0, -458746, 1, 0, -458745, 1, 0, -458744, 1, 0, -458743, 1, 0, -458742, 1, 0, -458741, 1, 0, -458740, 1, 0, -458739, 1, 0, -458738, 1, 0, -458737, 1, 0, -458736, 1, 0, -458735, 1, 0, -458725, 1, 0, -458726, 1, 0, -458727, 1, 0, -458728, 1, 0, -458729, 1, 0, -458730, 1, 0, -458731, 1, 0, -458732, 1, 0, -458733, 1, 0, -458734, 1, 0, 786460, 1, 0, 720924, 1, 0, 655388, 1, 0, 589852, 1, 0, 524316, 1, 0, 458780, 1, 0, 393244, 1, 0, 327708, 1, 0, 262172, 1, 0, 65564, 1, 0, 28, 1, 0, 131100, 1, 0, 196636, 1, 0, -65508, 1, 0, -131044, 1, 0, -196580, 1, 0, -262116, 1, 0, -327652, 1, 0, -393188, 1, 0, -458724, 1, 0, 589824, 1, 0, 655358, 1, 0, 655359, 1, 0, 589825, 1, 0, 589826, 1, 0, 655355, 1, 0, 655354, 1, 0, 655353, 1, 0, 589827, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 262135, 1, 0, 327671, 1, 0, 196633, 1, 0, 262169, 1, 0, -65545, 1, 0, -9, 1, 0, -131047, 1, 0, -65511, 1, 0, -131083, 1, 0, -131082, 1, 0, -131081, 1, 0, -8, 1, 0, -7, 1, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, -65532, 1, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -65521, 1, 0, -65520, 1, 0, -65519, 1, 0, -65518, 1, 0, -65513, 1, 0, -65512, 1, 0, -196583, 1, 0, -196582, 1, 0, -196581, 1, 0, 196599, 1, 0, 327672, 1, 0, 327673, 1, 0, 327674, 1, 0, 262147, 1, 0, 262148, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 262156, 1, 0, 262157, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 131097, 1, 0, 393211, 1, 0, 393212, 1, 0, 327700, 1, 0, 327701, 1, 0, 65533, 1, 0, 19, 1, 0, 851996, 1, 0, 851995, 1, 0, 851994, 1, 0, 851993, 1, 0, 851992, 1, 0, 851991, 1, 0, 851990, 1, 0, 851989, 1, 0, 851988, 1, 0, 851987, 1, 0, 851986, 1, 0, 851985, 1, 0, 851984, 1, 0, 851983, 1, 0, 851982, 1, 0, 851981, 1, 0, 851980, 1, 0, 851979, 1, 0, 851978, 1, 0, 851977, 1, 0, 851976, 1, 0, 851975, 1, 0, 851974, 1, 0, 851973, 1, 0, 851972, 1, 0, 851971, 1, 0, 851970, 1, 0, 851969, 1, 0, 851968, 1, 0, 917503, 1, 0, 917502, 1, 0, 917501, 1, 0, 917500, 1, 0, 917499, 1, 0, 917498, 1, 0, 917497, 1, 0, 917496, 1, 0, 917495, 1, 0, 917494, 1, 0, 917493, 1, 0, 917492, 1, 0, 851956, 1, 0)
+layer_0/tile_data = PackedInt32Array(786420, 3, 1, 720884, 3, 1, 655348, 3, 1, 589812, 3, 1, 524276, 3, 1, 458740, 3, 1, 393204, 3, 1, 327668, 3, 1, 262132, 3, 1, 196596, 3, 1, 131060, 3, 1, 65524, 3, 1, -12, 3, 1, -65548, 3, 1, -131084, 3, 1, -196620, 3, 1, -262156, 3, 1, -327692, 3, 1, -393228, 3, 1, -393227, 3, 1, -393226, 3, 1, -393225, 3, 1, -393224, 3, 1, -393223, 3, 1, -393222, 3, 1, -393221, 3, 1, -393220, 3, 1, -393219, 3, 1, -393218, 3, 1, -393217, 3, 1, -458752, 3, 1, -458751, 3, 1, -458750, 3, 1, -458749, 3, 1, -458748, 3, 1, -458747, 3, 1, -458746, 3, 1, -458745, 3, 1, -458744, 3, 1, -458743, 3, 1, -458742, 3, 1, -458741, 3, 1, -458740, 3, 1, -458739, 3, 1, -458738, 3, 1, -458737, 3, 1, -458736, 3, 1, -458735, 3, 1, -458725, 3, 1, -458726, 3, 1, -458727, 3, 1, -458728, 3, 1, -458729, 3, 1, -458730, 3, 1, -458731, 3, 1, -458732, 3, 1, -458733, 3, 1, -458734, 3, 1, 786460, 3, 1, 720924, 3, 1, 655388, 3, 1, 589852, 3, 1, 524316, 3, 1, 458780, 3, 1, 393244, 3, 1, 327708, 3, 1, 262172, 3, 1, 65564, 3, 1, 28, 3, 1, 131100, 3, 1, 196636, 3, 1, -65508, 3, 1, -131044, 3, 1, -196580, 3, 1, -262116, 3, 1, -327652, 3, 1, -393188, 3, 1, -458724, 3, 1, 589824, 65539, 1, 655358, 65539, 1, 655359, 65539, 1, 589825, 65539, 1, 589826, 65539, 1, 655355, 65539, 1, 655354, 65539, 1, 655353, 65539, 1, 589827, 65539, 1, 589831, 65539, 1, 589832, 65539, 1, 589833, 65539, 1, 589837, 65539, 1, 589838, 65539, 1, 589839, 65539, 1, 589840, 65539, 1, 589841, 65539, 1, 589842, 65539, 1, 589845, 65539, 1, 589846, 65539, 1, 589847, 65539, 1, 262135, 65539, 1, 327671, 65539, 1, 196633, 65539, 1, 262169, 65539, 1, -65545, 65539, 1, -9, 65539, 1, -131047, 65539, 1, -65511, 65539, 1, -131083, 65539, 1, -131082, 65539, 1, -131081, 65539, 1, -8, 65539, 1, -7, 65539, 1, -2, 65539, 1, -1, 65539, 1, -65536, 65539, 1, -65535, 65539, 1, -65534, 65539, 1, -65533, 65539, 1, -65532, 65539, 1, -65524, 65539, 1, -65523, 65539, 1, -65522, 65539, 1, -65521, 65539, 1, -65520, 65539, 1, -65519, 65539, 1, -65518, 65539, 1, -65513, 65539, 1, -65512, 65539, 1, -196583, 65539, 1, -196582, 65539, 1, -196581, 65539, 1, 196599, 65539, 1, 327672, 65539, 1, 327673, 65539, 1, 327674, 65539, 1, 262147, 65539, 1, 262148, 65539, 1, 327685, 65539, 1, 327686, 65539, 1, 327687, 65539, 1, 327688, 65539, 1, 327689, 65539, 1, 327690, 65539, 1, 327691, 65539, 1, 262156, 65539, 1, 262157, 65539, 1, 262166, 65539, 1, 262167, 65539, 1, 262168, 65539, 1, 131097, 65539, 1, 393211, 65539, 1, 393212, 65539, 1, 327700, 65539, 1, 327701, 65539, 1, 65533, 65539, 1, 19, 65539, 1, 851996, 65539, 0, 851995, 65539, 0, 851994, 65539, 0, 851993, 65539, 0, 851992, 65539, 0, 851991, 65539, 0, 851990, 65539, 0, 851989, 65539, 0, 851988, 65539, 0, 851987, 65539, 0, 851986, 65539, 0, 851985, 65539, 0, 851984, 65539, 0, 851983, 65539, 0, 851982, 65539, 0, 851981, 65539, 0, 851980, 65539, 0, 851979, 65539, 0, 851978, 65539, 0, 851977, 65539, 0, 851976, 65539, 0, 851975, 65539, 0, 851974, 65539, 0, 851973, 65539, 0, 851972, 65539, 0, 851971, 65539, 0, 851970, 65539, 0, 851969, 65539, 0, 851968, 65539, 0, 917503, 65539, 0, 917502, 65539, 0, 917501, 65539, 0, 917500, 65539, 0, 917499, 65539, 0, 917498, 65539, 0, 917497, 65539, 0, 917496, 65539, 0, 917495, 65539, 0, 917494, 65539, 0, 917493, 65539, 0, 917492, 65539, 0, 851956, 3, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+show_behind_parent = true
+position = Vector2(12, 8)
+scale = Vector2(0.935007, 0.623077)
+texture = ExtResource("4_jjmsj")
+centered = false
+
+[node name="game_ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Wave" type="Label" parent="game_ui"]
+layout_mode = 0
+offset_left = -311.0
+offset_top = -156.0
+offset_right = -251.0
+offset_bottom = -133.0
+
+[node name="slime" parent="." instance=ExtResource("3_c1j6r")]
+position = Vector2(-29, 92)
+
+[node name="slime2" parent="." instance=ExtResource("3_c1j6r")]
+position = Vector2(447, 90)
+
+[node name="slime3" parent="." instance=ExtResource("3_c1j6r")]
+position = Vector2(198, -37)
+
+[node name="slime4" parent="." instance=ExtResource("3_c1j6r")]
+position = Vector2(-35, -229)
+
+[node name="slime5" parent="." instance=ExtResource("3_c1j6r")]
+position = Vector2(424, -227)
+
+[node name="sound_track1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_850ex")
+volume_db = 3.962
+autoplay = true
+
+[connection signal="enemy_killed" from="slime" to="." method="_on_slime_enemy_killed"]
+[connection signal="enemy_killed" from="slime2" to="." method="_on_slime_enemy_killed"]
+[connection signal="enemy_killed" from="slime3" to="." method="_on_slime_enemy_killed"]
+[connection signal="enemy_killed" from="slime4" to="." method="_on_slime_enemy_killed"]
+[connection signal="enemy_killed" from="slime5" to="." method="_on_slime_enemy_killed"]

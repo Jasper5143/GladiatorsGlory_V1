@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byjo8g7cccquv"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_8mhh0"]
-[ext_resource type="Texture2D" uid="uid://5q708ufx0dpf" path="res://icon.svg" id="2_xi8y5"]
+[ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="2_ea3gt"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_8mhh0")
@@ -18,7 +18,7 @@ modulate = Color(0.290196, 0.290196, 0.290196, 1)
 show_behind_parent = true
 position = Vector2(573, 321)
 scale = Vector2(0.840473, 0.615385)
-texture = ExtResource("2_xi8y5")
+texture = ExtResource("2_ea3gt")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 512.0

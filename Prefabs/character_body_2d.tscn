@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ndrofknvi3dk"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tffkr"]
-[ext_resource type="Texture2D" uid="uid://5q708ufx0dpf" path="res://icon.svg" id="2_ud2wd"]
+[ext_resource type="Texture2D" uid="uid://c24ktihhnr3f4" path="res://Sprites/Gladiator sprite 4-1.png (2).png" id="2_1dfv0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l516"]
 radius = 32.0
@@ -13,9 +13,9 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_tffkr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7.99997, -17)
-scale = Vector2(0.375, 0.828125)
-texture = ExtResource("2_ud2wd")
+position = Vector2(-7.00002, -31)
+scale = Vector2(3.34375, 3.28125)
+texture = ExtResource("2_1dfv0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, -20)
