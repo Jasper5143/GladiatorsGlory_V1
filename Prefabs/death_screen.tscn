@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://yqmcclkgiany"]
 
-[ext_resource type="Script" path="res://Scripts/Death screen.gd" id="1_8o4c0"]
-[ext_resource type="AudioStream" uid="uid://de7itrxyq16ka" path="res://Audio/pixel-death-66829.mp3" id="2_1xpeq"]
+[ext_resource type="Script" path="res://Scripts/Death screen.gd" id="1_r8fs5"]
+[ext_resource type="AudioStream" uid="uid://de7itrxyq16ka" path="res://Audio/pixel-death-66829.mp3" id="2_1hoii"]
 
 [node name="Death screen" type="Node2D"]
-script = ExtResource("1_8o4c0")
+script = ExtResource("1_r8fs5")
 
 [node name="respawn" type="Button" parent="."]
 offset_left = 385.0
@@ -29,7 +29,7 @@ offset_bottom = 514.0
 text = "Menu"
 
 [node name="Death_sfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_1xpeq")
+stream = ExtResource("2_1hoii")
 autoplay = true
 
 [connection signal="pressed" from="respawn" to="." method="_on_button_pressed"]
