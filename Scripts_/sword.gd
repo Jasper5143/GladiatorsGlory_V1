@@ -1,13 +1,9 @@
 extends Area2D
-
-var rng = RandomNumberGenerator.new()
+signal sword_sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$sword_sfx.play
-	rng.randomize()
-	var pitch_shift = rng.randfn(-0.1,0.1)
-	print(pitch_shift)
+	sword_sound.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -20,7 +16,7 @@ func _process(_delta):
 
 
 func _on_timer_timeout():
-	queue_free()
+		queue_free()
 
 
 

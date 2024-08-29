@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_02ye7"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
 script = ExtResource("1_02ye7")
 
 [node name="Control" type="Control" parent="."]

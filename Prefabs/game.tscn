@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://besojl7vkjoxk"]
 
 [ext_resource type="PackedScene" uid="uid://ndrofknvi3dk" path="res://Prefabs/character_body_2d.tscn" id="1_cdqqj"]
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_gfc5p"]
-[ext_resource type="Texture2D" uid="uid://cg341p3gbn7f6" path="res://Sprites/icon.svg" id="2_yxac3"]
+[ext_resource type="Script" path="res://Scripts_/game.gd" id="1_gfc5p"]
+[ext_resource type="Texture2D" uid="uid://5q708ufx0dpf" path="res://icon.svg" id="2_yxac3"]
 [ext_resource type="PackedScene" uid="uid://dxkuw6jdlg7l3" path="res://Prefabs/slime.tscn" id="3_c1j6r"]
-[ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="4_jjmsj"]
-[ext_resource type="Texture2D" uid="uid://bv7eowyskvqr3" path="res://Sprites/New Piskel (3).png" id="5_nr1v2"]
+[ext_resource type="Texture2D" uid="uid://5q708ufx0dpf" path="res://icon.svg" id="4_jjmsj"]
+[ext_resource type="Texture2D" uid="uid://5q708ufx0dpf" path="res://icon.svg" id="5_nr1v2"]
 [ext_resource type="AudioStream" uid="uid://yrj4monfxfsa" path="res://Audio/Mark Wilson X - In the Hall of the Mountain King.mp3" id="7_850ex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2qa6"]
@@ -47,7 +47,20 @@ position = Vector2(388, 231)
 script = ExtResource("1_gfc5p")
 
 [node name="Player" parent="." instance=ExtResource("1_cdqqj")]
-position = Vector2(-276, 332)
+position = Vector2(-300, 300)
+
+[node name="game_ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -300.0
+offset_top = -150.0
+offset_right = -260.0
+offset_bottom = -110.0
+
+[node name="Wave" type="Label" parent="game_ui"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_p0bjs")
@@ -61,23 +74,11 @@ motion_scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 show_behind_parent = true
-position = Vector2(12, 8)
+position = Vector2(24, 25)
 scale = Vector2(0.935007, 0.623077)
 texture = ExtResource("4_jjmsj")
 centered = false
-
-[node name="game_ui" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Wave" type="Label" parent="game_ui"]
-layout_mode = 0
-offset_left = -311.0
-offset_top = -156.0
-offset_right = -251.0
-offset_bottom = -133.0
+metadata/_edit_lock_ = true
 
 [node name="slime" parent="." instance=ExtResource("3_c1j6r")]
 position = Vector2(-29, 92)
@@ -89,7 +90,7 @@ position = Vector2(447, 90)
 position = Vector2(198, -37)
 
 [node name="slime4" parent="." instance=ExtResource("3_c1j6r")]
-position = Vector2(-35, -229)
+position = Vector2(-29, -229)
 
 [node name="slime5" parent="." instance=ExtResource("3_c1j6r")]
 position = Vector2(424, -227)
