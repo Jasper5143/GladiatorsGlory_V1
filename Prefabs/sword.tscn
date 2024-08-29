@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjtdwueskxt2q"]
+[gd_scene load_steps=5 format=3 uid="uid://cjtdwueskxt2q"]
 
 [ext_resource type="Script" path="res://Scripts/sword.gd" id="1_2v6mg"]
 [ext_resource type="Texture2D" uid="uid://5yyivsn4a2yc" path="res://Sprites/Sword_sprite-1.png.png" id="2_uxn8l"]
+[ext_resource type="AudioStream" uid="uid://c2hkdd4efcxvq" path="res://Audio/arcade-8bit-fx-159064.mp3" id="3_1fuws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n885"]
 size = Vector2(9.89949, 38.147)
@@ -23,6 +24,12 @@ autostart = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(34, -31)
 texture = ExtResource("2_uxn8l")
+
+[node name="sword_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1fuws")
+volume_db = 1.025
+pitch_scale = 0.35
+autoplay = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,63 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmgdwswjpgvx8"]
+[gd_scene load_steps=3 format=3 uid="uid://cmgdwswjpgvx8"]
 
-[ext_resource type="Texture2D" uid="uid://m23ja4offp4d" path="res://Sprites/skeleton_sprite.png" id="2_4cv0k"]
-
-[sub_resource type="GDScript" id="GDScript_piw1m"]
-script/source = "extends Node2D
-
-signal enemy_killed
-@export var shoot_cooldown = 1.2
-@onready var Player = get_tree().get_first_node_in_group(\"Player\")
-
-@onready var shoot_timer = $shoot_timer
-var arrow = load(\"res://Prefabs/arrow.tscn\")
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	shoot_timer.start(shoot_cooldown)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if shoot_timer.is_stopped():
-		shoot()
-		shoot_timer.start(shoot_cooldown)
-
-func shoot():
-	var arrow = arrow.instantiate()
-	arrow.position = position
-	get_parent().add_child(arrow)
-	var direction_to_player = global_position.direction_to(Player.global_position)
-	arrow.direction = direction_to_player.normalized()
-	arrow.rotation = direction_to_player.angle()
-
-
-func _on_area_2d_area_entered(area):
-	if area.name == \"sword\":
-		queue_free()
-		enemy_killed.emit()
-"
+[ext_resource type="Texture2D" uid="uid://cg341p3gbn7f6" path="res://Sprites/icon.svg" id="1_cticp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unh1k"]
-size = Vector2(54, 72)
+size = Vector2(120, 122)
 
 [node name="Skeleton" type="Node2D"]
-position = Vector2(-2, -33)
-scale = Vector2(1.5, 1.5)
-script = SubResource("GDScript_piw1m")
-metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(43, -58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2, 0.16)
+position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_unh1k")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(29.185, -7.23)
-scale = Vector2(0.619336, 0.629)
-texture = ExtResource("2_4cv0k")
-
-[node name="shoot_timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+position = Vector2(-2, 3)
+texture = ExtResource("1_cticp")

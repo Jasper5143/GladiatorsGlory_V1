@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name UI
 @onready var score_label = %Label
 var score = 0
 
