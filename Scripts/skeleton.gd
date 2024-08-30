@@ -31,5 +31,5 @@ func shoot():
 
 func _on_area_2d_area_entered(area):
 	if area.name == "sword":
-		queue_free()
 		enemy_killed.emit()
+		queue_free()

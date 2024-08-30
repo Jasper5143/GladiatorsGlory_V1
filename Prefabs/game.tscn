@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://besojl7vkjoxk"]
+[gd_scene load_steps=11 format=3 uid="uid://besojl7vkjoxk"]
 
 [ext_resource type="PackedScene" uid="uid://ndrofknvi3dk" path="res://Prefabs/character_body_2d.tscn" id="1_cdqqj"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gfc5p"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="4_jjmsj"]
 [ext_resource type="Texture2D" uid="uid://bv7eowyskvqr3" path="res://Sprites/New Piskel (3).png" id="5_nr1v2"]
 [ext_resource type="AudioStream" uid="uid://yrj4monfxfsa" path="res://Audio/Mark Wilson X - In the Hall of the Mountain King.mp3" id="7_850ex"]
-[ext_resource type="PackedScene" uid="uid://cmgdwswjpgvx8" path="res://Prefabs/skeleton.tscn" id="8_c68ra"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2qa6"]
 texture = ExtResource("2_yxac3")
@@ -99,9 +98,6 @@ position = Vector2(424, -227)
 stream = ExtResource("7_850ex")
 volume_db = 3.962
 autoplay = true
-
-[node name="Skeleton" parent="." instance=ExtResource("8_c68ra")]
-position = Vector2(-87, 362)
 
 [connection signal="enemy_killed" from="slime" to="." method="_on_slime_enemy_killed"]
 [connection signal="enemy_killed" from="slime2" to="." method="_on_slime_enemy_killed"]
