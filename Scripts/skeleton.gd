@@ -4,7 +4,7 @@ extends Node2D
 @onready var Player = get_tree().get_first_node_in_group("Player")
 @onready var shoot_timer = $ShootTimer
 var arrow_scene = preload("res://Prefabs/arrow.tscn")
-signal enemy_killed
+signal skeleton_killed
 
 func _ready():
 	if Player == null:
@@ -31,5 +31,5 @@ func shoot():
 
 func _on_area_2d_area_entered(area):
 	if area.name == "sword":
-		enemy_killed.emit()
+		skeleton_killed.emit()
 		queue_free()

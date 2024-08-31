@@ -1,17 +1,15 @@
 extends Node2D
+
 var wave = 1
 var kills = 0
+var locust_count = 10
 
 @onready var skeleton_prefab = preload("res://Prefabs/skeleton.tscn")
+@onready var locust_prefab = preload("res://Prefabs/locust.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	_update_ui()
-	$sound_track1.play
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-
+	$sound_track1.play()
 
 func enemy_death():
 	kills += 1
@@ -19,24 +17,42 @@ func enemy_death():
 	if kills == 5:
 		wave += 1
 		_update_ui()
-	if wave == 2 and kills ==5:
-		var skeleton = skeleton_prefab.instantiate()
-		add_child(skeleton)
-		skeleton.connect("skeleton_enemy_killed", Callable(self, "_on_skeleton_enemy_killed"))
-		skeleton.position = Vector2(-220,-86)
-		skeleton = skeleton_prefab.instantiate()
-		add_child(skeleton)
-		skeleton.connect("skeleton_enemy_killed", Callable(self, "_on_skeletonenemy_killed"))
-		skeleton.position = Vector2(773,-86)
+		if wave == 2:
+			spawn_skeletons()
+	elif kills == 7:
+		wave += 1
+		_update_ui()
+		if wave == 3:
+			spawn_locusts(locust_count)
+
+func spawn_skeletons():
+	var skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(-220, -86)
+	
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(773, -86)
+
+func spawn_locusts(count):
+	for i in range(count):
+		var locust = locust_prefab.instantiate()
+		add_child(locust)
+		locust.connect("locust_killed", Callable(self, "locust_killed"))
+		locust.position = Vector2(-340, randi_range(-150, 400))
+	
 
 func _on_slime_enemy_killed():
 	enemy_death()
-		
 
+func skeleton_killed():
+	enemy_death()
+
+func locust_killed():
+	print("yay")
+	enemy_death()
 
 func _update_ui():
 	$game_ui/Wave.text = "Wave: " + str(wave)
-
-
-func _on_skeleton_enemy_killed():
-	enemy_death()
