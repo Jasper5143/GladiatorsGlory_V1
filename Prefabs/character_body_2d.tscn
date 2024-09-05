@@ -21,10 +21,8 @@ position = Vector2(14, -20)
 shape = SubResource("CapsuleShape2D_2l516")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(4, 2)
 limit_left = 0
 limit_top = 0
 limit_right = 1316
-limit_bottom = 700
-limit_smoothed = true
+limit_bottom = 680
 position_smoothing_enabled = true

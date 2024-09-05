@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var sword_prefab = preload("res://Prefabs/sword.tscn")
-
+@onready var camera = $Camera2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
