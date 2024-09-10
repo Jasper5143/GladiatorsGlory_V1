@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @onready var sword_prefab = preload("res://Prefabs/sword.tscn")
 @onready var camera = $Camera2D
-
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 const SPEED = 300.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -700.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var attacking = false
@@ -33,6 +33,19 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	#walk animation
+	if velocity.x == 300 or velocity.x == -300:
+		anim.play("Running")
+	else:
+		anim.play("Idle")
+	if attacking == true:
+		anim.play("attack")
+		
+	if velocity.x == 300:
+		anim.flip_h = false
+	if velocity.x == -300:
+		anim.flip_h = true
 	
 		
 func _process(_delta):
@@ -67,4 +80,3 @@ func jump_cut():
 	if velocity.y < 0:
 		velocity.y = 2
 	
- 

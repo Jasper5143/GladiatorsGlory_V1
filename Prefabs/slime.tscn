@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxkuw6jdlg7l3"]
+[gd_scene load_steps=9 format=3 uid="uid://dxkuw6jdlg7l3"]
 
 [ext_resource type="Script" path="res://Scripts/slime.gd" id="1_lf1ka"]
-[ext_resource type="Texture2D" uid="uid://3xvvuxc834mp" path="res://Sprites/Gladiator sprite 4-6.png (1).png" id="2_s1gwp"]
+[ext_resource type="Texture2D" uid="uid://ct5ihajiaq08m" path="res://Sprites/Slime_anim-sprite.png" id="2_drl6o"]
 
 [sub_resource type="Curve2D" id="Curve2D_5cfq3"]
 _data = {
@@ -9,16 +9,44 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngq2f"]
+atlas = ExtResource("2_drl6o")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw4ex"]
+atlas = ExtResource("2_drl6o")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dulvp"]
+atlas = ExtResource("2_drl6o")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fcmm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngq2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw4ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dulvp")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5b4q"]
-size = Vector2(229.856, 95.7882)
+size = Vector2(137.171, 51.9291)
 
 [node name="slime" type="Node2D"]
-position = Vector2(96, -51)
+position = Vector2(-12, -5)
 script = ExtResource("1_lf1ka")
-metadata/_edit_group_ = true
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(9.49872, 0)
+position = Vector2(17, -182)
 scale = Vector2(0.87468, 1)
 curve = SubResource("Curve2D_5cfq3")
 
@@ -28,16 +56,16 @@ rotation = 0.00511505
 rotates = false
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.3, 0.3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Area2D"]
+sprite_frames = SubResource("SpriteFrames_8fcmm")
+animation = &"moving"
+autoplay = "moving"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
-position = Vector2(-58.2408, -19.8069)
+position = Vector2(2.7916, 2.02367)
 shape = SubResource("RectangleShape2D_p5b4q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D"]
-position = Vector2(-22.077, -50.115)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_s1gwp")
 
 [connection signal="area_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_body_entered"]

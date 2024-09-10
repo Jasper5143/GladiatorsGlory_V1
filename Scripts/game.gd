@@ -8,6 +8,8 @@ var locust_count = 5
 @onready var skeleton_prefab = preload("res://Prefabs/skeleton.tscn")
 @onready var locust_prefab = preload("res://Prefabs/locust.tscn")
 
+func _process(delta):
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _ready():
 	_update_ui()

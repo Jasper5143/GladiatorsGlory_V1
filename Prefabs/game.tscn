@@ -80,19 +80,19 @@ offset_right = -251.0
 offset_bottom = -133.0
 
 [node name="slime" parent="." instance=ExtResource("3_c1j6r")]
-position = Vector2(-29, 92)
+position = Vector2(-49, 273)
 
 [node name="slime2" parent="." instance=ExtResource("3_c1j6r")]
-position = Vector2(447, 90)
+position = Vector2(427, 273)
 
 [node name="slime3" parent="." instance=ExtResource("3_c1j6r")]
-position = Vector2(198, -37)
+position = Vector2(187, 145)
 
 [node name="slime4" parent="." instance=ExtResource("3_c1j6r")]
-position = Vector2(-26, -229)
+position = Vector2(-36, -47)
 
 [node name="slime5" parent="." instance=ExtResource("3_c1j6r")]
-position = Vector2(424, -227)
+position = Vector2(403, -47)
 
 [node name="sound_track1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_850ex")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bn1auljxmeoxs"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 509.0
+offset_top = 103.0
+offset_right = 694.0
+offset_bottom = 345.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Controls:
+Arrow keys: Movement
+W: Attack up
+A: Attack left
+D; attack right
+
+Music Credits:
+"

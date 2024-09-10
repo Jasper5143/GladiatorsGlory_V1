@@ -1,23 +1,86 @@
-[gd_scene load_steps=4 format=3 uid="uid://ndrofknvi3dk"]
+[gd_scene load_steps=11 format=3 uid="uid://ndrofknvi3dk"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tffkr"]
-[ext_resource type="Texture2D" uid="uid://c24ktihhnr3f4" path="res://Sprites/Gladiator sprite 4-1.png (2).png" id="2_1dfv0"]
+[ext_resource type="Texture2D" uid="uid://bhbsi8k8n8v8g" path="res://Sprites/Gladiator_animated_sprite_V2.png" id="2_mkxd2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kev3j"]
+atlas = ExtResource("2_mkxd2")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a70l5"]
+atlas = ExtResource("2_mkxd2")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87t51"]
+atlas = ExtResource("2_mkxd2")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86lwv"]
+atlas = ExtResource("2_mkxd2")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50vhb"]
+atlas = ExtResource("2_mkxd2")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n48du"]
+atlas = ExtResource("2_mkxd2")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_io5co"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kev3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a70l5")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.25
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87t51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86lwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50vhb")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n48du")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2l516"]
-radius = 32.0
-height = 116.0
+radius = 28.0
+height = 104.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_tffkr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7.00002, -31)
-scale = Vector2(3.34375, 3.28125)
-texture = ExtResource("2_1dfv0")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -1.90735e-06)
+scale = Vector2(0.859863, 0.826172)
+sprite_frames = SubResource("SpriteFrames_io5co")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.184181
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, -20)
+position = Vector2(6, 0)
 shape = SubResource("CapsuleShape2D_2l516")
 
 [node name="Camera2D" type="Camera2D" parent="."]
