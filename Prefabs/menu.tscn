@@ -27,4 +27,12 @@ offset_right = 659.0
 offset_bottom = 80.0
 text = "Gladiator’s Glory"
 
+[node name="Help" type="Button" parent="."]
+offset_left = 502.0
+offset_top = 306.0
+offset_right = 671.0
+offset_bottom = 400.0
+text = "Help"
+
 [connection signal="pressed" from="play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_help_pressed"]

@@ -8,24 +8,25 @@
 size = Vector2(9.89949, 38.147)
 
 [node name="sword" type="Area2D"]
-position = Vector2(9, 0)
+position = Vector2(1, 0)
 script = ExtResource("1_2v6mg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(36, -33)
-rotation = 0.785398
-shape = SubResource("RectangleShape2D_8n885")
-metadata/_edit_group_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25, -24)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_8n885")
+metadata/_edit_group_ = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(34, -31)
+position = Vector2(24, -22)
 texture = ExtResource("2_uxn8l")
 
 [node name="sword_sfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 0)
 stream = ExtResource("3_1fuws")
 volume_db = 1.025
 pitch_scale = 0.35

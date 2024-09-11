@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bn1auljxmeoxs"]
+[gd_scene load_steps=2 format=3 uid="uid://bn1auljxmeoxs"]
+
+[ext_resource type="Script" path="res://Scripts/Help_menu.gd" id="1_am8ld"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_am8ld")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 509.0
@@ -17,3 +20,12 @@ D; attack right
 
 Music Credits:
 "
+
+[node name="Menu_return" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 369.0
+offset_right = 649.0
+offset_bottom = 427.0
+text = "Menu"
+
+[connection signal="pressed" from="Menu_return" to="." method="_on_menu_return_pressed"]
