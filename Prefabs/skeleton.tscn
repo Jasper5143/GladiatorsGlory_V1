@@ -1,10 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmgdwswjpgvx8"]
+[gd_scene load_steps=9 format=3 uid="uid://cmgdwswjpgvx8"]
 
-[ext_resource type="Texture2D" uid="uid://bw03es5xnm4ko" path="res://Sprites/Gladiator sprite 3-4.png.png" id="1_2v1h5"]
 [ext_resource type="Script" path="res://Scripts/skeleton.gd" id="1_ef568"]
+[ext_resource type="Texture2D" uid="uid://buwfvja3liddo" path="res://Sprites/Skeleton_anim.png" id="2_dtnnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unh1k"]
 size = Vector2(59, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbgrl"]
+atlas = ExtResource("2_dtnnk")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dblev"]
+atlas = ExtResource("2_dtnnk")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wycae"]
+atlas = ExtResource("2_dtnnk")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqa50"]
+atlas = ExtResource("2_dtnnk")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62p7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbgrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dblev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wycae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqa50")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="Skeleton" type="Node2D"]
 script = ExtResource("1_ef568")
@@ -16,9 +52,13 @@ position = Vector2(43, -58)
 position = Vector2(-47.5, 54)
 shape = SubResource("RectangleShape2D_unh1k")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(-5, 44)
-texture = ExtResource("1_2v1h5")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-39, 57)
+scale = Vector2(1.02734, 1.02344)
+sprite_frames = SubResource("SpriteFrames_62p7c")
+autoplay = "default"
+frame_progress = 0.431574
+speed_scale = 0.8
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
