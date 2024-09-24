@@ -8,7 +8,7 @@ signal enemy_killed
 #kills player (sends to death screen)
 @onready var slime_anim: AnimatedSprite2D = $Path2D/PathFollow2D/Area2D/AnimatedSprite2D
 
-
+#flips sprite when direction changes
 func _process(delta: float) -> void:
 	path_follow.progress += speed * delta
 	if path_follow.progress >= 178.35:
@@ -17,13 +17,13 @@ func _process(delta: float) -> void:
 		slime_anim.flip_h = false
 
 
-
+#manages player death
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		get_tree().change_scene_to_file("res://Prefabs/death_screen.tscn")
 	
 
-
+#manages slime death
 func _on_area_2d_area_entered(area):
 	if area.name == "sword":
 		queue_free()

@@ -3,7 +3,7 @@ extends Area2D
 var rng = RandomNumberGenerator.new()
 @export var cheats = true
 
-# Called when the node enters the scene tree for the first time.
+# plays sword sfx and enables/disables cheats
 func _ready():
 	$sword_sfx.play
 	rng.randomize()
@@ -13,7 +13,7 @@ func _ready():
 		scale.x += 5
 		scale.y += 5
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# sword movement
 func _process(_delta):
 	if scale.x == 1 :
 		rotation += 0.15
@@ -22,7 +22,7 @@ func _process(_delta):
 	else:
 		rotation -= 0.15
 
-
+#removes sword after time
 func _on_timer_timeout():
 	queue_free()
 

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+#Variables
 @onready var sword_prefab = preload("res://Prefabs/sword.tscn")
 @onready var camera = $Camera2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -24,14 +25,12 @@ func _physics_process(delta):
 		jump_cut()
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
 	
 	#walk animation
@@ -47,7 +46,7 @@ func _physics_process(delta):
 	if velocity.x == -300:
 		anim.flip_h = true
 	
-		
+#Managed sword attack
 func _process(_delta):
 	if Input.is_action_just_pressed("attack_right") and attacking == false:
 		var sword = sword_prefab.instantiate()
@@ -76,6 +75,7 @@ func _process(_delta):
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
 
+#stops the jump when up is released
 func jump_cut():
 	if velocity.y < 0:
 		velocity.y = 2

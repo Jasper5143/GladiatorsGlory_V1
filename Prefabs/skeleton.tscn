@@ -57,7 +57,7 @@ position = Vector2(-39, 57)
 scale = Vector2(1.02734, 1.02344)
 sprite_frames = SubResource("SpriteFrames_62p7c")
 autoplay = "default"
-frame_progress = 0.431574
+frame_progress = 0.853359
 speed_scale = 0.8
 
 [node name="ShootTimer" type="Timer" parent="."]

@@ -6,6 +6,7 @@ extends Node2D
 var arrow_scene = preload("res://Prefabs/arrow.tscn")
 signal skeleton_killed
 
+#shoots arrow at timed intervals
 func _ready():
 	if Player == null:
 		print("Player not found!")
@@ -16,7 +17,7 @@ func _process(delta):
 	if shoot_timer.is_stopped():
 		shoot()
 		shoot_timer.start(shoot_cooldown)
-
+#shoots arrow
 func shoot():
 	var arrow = arrow_scene.instantiate()
 	arrow.position = position
@@ -28,7 +29,7 @@ func shoot():
 	arrow.rotation = direction_to_player.angle()  
 	
 
-
+#manages skeleton death
 func _on_area_2d_area_entered(area):
 	if area.name == "sword":
 		skeleton_killed.emit()

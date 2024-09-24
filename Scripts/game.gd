@@ -8,13 +8,16 @@ var locust_count = 5
 @onready var skeleton_prefab = preload("res://Prefabs/skeleton.tscn")
 @onready var locust_prefab = preload("res://Prefabs/locust.tscn")
 
+#hides mouse when game is active
 func _process(delta):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+#Keeps the UI updated and plays the game's music
 func _ready():
 	_update_ui()
 	$sound_track1.play()
 
+#Manages all enemy deaths - updates UI and Waves
 func enemy_death():
 	kills += 1
 	print(kills)
@@ -34,6 +37,7 @@ func enemy_death():
 		if wave ==4:
 			wave_4()
 
+#spawns skeletons
 func wave_2():
 	var skeleton = skeleton_prefab.instantiate()
 	add_child(skeleton)
@@ -45,6 +49,7 @@ func wave_2():
 	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
 	skeleton.position = Vector2(773, -86)
 
+#spawns locusts
 func wave_3(count):
 	for i in range(count):
 		var locust = locust_prefab.instantiate()
@@ -52,6 +57,7 @@ func wave_3(count):
 		locust.connect("locust_killed", Callable(self, "locust_killed"))
 		locust.position = Vector2(-340, randi_range(-150, 400))
 	
+#Player wins
 func wave_4():
 	print("wave 4 start")
 	get_tree().change_scene_to_file("res://Prefabs/win_screen.tscn")
@@ -66,5 +72,6 @@ func skeleton_killed():
 func locust_killed():
 	enemy_death()
 
+#tells UI what to display
 func _update_ui():
 	$game_ui/Wave.text = "Wave: " + str(wave)
