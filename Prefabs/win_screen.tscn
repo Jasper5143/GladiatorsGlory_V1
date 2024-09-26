@@ -1,16 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7hghobn38dvv"]
+[gd_scene load_steps=4 format=3 uid="uid://b7hghobn38dvv"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_vy01y"]
+[ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="2_6g25w"]
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="2_txqlp"]
 
 [node name="win_screen" type="Node2D"]
 script = ExtResource("1_vy01y")
 
 [node name="play" type="Button" parent="."]
-offset_left = 495.0
-offset_top = 209.0
-offset_right = 672.0
-offset_bottom = 273.0
+offset_left = 436.0
+offset_top = 275.0
+offset_right = 740.0
+offset_bottom = 323.0
+theme_override_fonts/font = ExtResource("2_6g25w")
+theme_override_font_sizes/font_size = 40
 text = "Play Again"
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -26,12 +29,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 544.0
-offset_top = 138.0
-offset_right = 618.0
-offset_bottom = 168.0
+offset_left = 449.0
+offset_top = 178.0
+offset_right = 722.0
+offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_6g25w")
+theme_override_font_sizes/normal_font_size = 60
 text = "You win!"
 
 [connection signal="pressed" from="play" to="." method="_on_button_pressed"]

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 #Variables
+@onready var cooldown_amina = preload("res://Prefabs/attack_cooldown_anim.tscn")
 @onready var sword_prefab = preload("res://Prefabs/sword.tscn")
 @onready var camera = $Camera2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -46,6 +47,11 @@ func _physics_process(delta):
 	if velocity.x == -300:
 		anim.flip_h = true
 	
+func cooldown_anim():
+	var cooldown_anim_prefab = cooldown_amina.instantiate()
+	get_parent().add_child(cooldown_anim_prefab)
+	await get_tree().create_timer(0.5).timeout
+	
 #Managed sword attack
 func _process(_delta):
 	if Input.is_action_just_pressed("attack_right") and attacking == false:
@@ -53,6 +59,7 @@ func _process(_delta):
 		sword.position = position
 		get_parent().add_child(sword)
 		attacking = true
+		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
 	if Input.is_action_just_pressed("attack_left") and attacking == false:
@@ -62,6 +69,7 @@ func _process(_delta):
 		sword.scale.x = -1.000001
 		get_parent().add_child(sword)
 		attacking = true
+		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
 		
@@ -72,11 +80,15 @@ func _process(_delta):
 		sword.scale.x = -1
 		get_parent().add_child(sword)
 		attacking = true
+		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
-
+		
+	
 #stops the jump when up is released
 func jump_cut():
 	if velocity.y < 0:
-		velocity.y = 2
+		velocity.y *= 0.2
+	
+
 	

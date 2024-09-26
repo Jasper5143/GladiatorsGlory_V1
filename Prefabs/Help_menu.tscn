@@ -1,31 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn1auljxmeoxs"]
+[gd_scene load_steps=4 format=3 uid="uid://bn1auljxmeoxs"]
 
 [ext_resource type="Script" path="res://Scripts/Help_menu.gd" id="1_am8ld"]
+[ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="2_txsks"]
+[ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="3_cjhyn"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_am8ld")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 509.0
-offset_top = 103.0
-offset_right = 694.0
-offset_bottom = 345.0
+z_index = 2
+offset_left = 471.0
+offset_top = 67.0
+offset_right = 797.0
+offset_bottom = 350.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("2_txsks")
+theme_override_font_sizes/normal_font_size = 30
 text = "Controls:
 Arrow keys: Movement
 W: Attack up
 A: Attack left
-D; attack right
+D: attack right
+Kill all enemies to progress waves
 
 Music Credits:
 "
 
 [node name="Menu_return" type="Button" parent="."]
+z_index = 2
 offset_left = 504.0
 offset_top = 369.0
 offset_right = 649.0
 offset_bottom = 427.0
+theme_override_fonts/font = ExtResource("2_txsks")
+theme_override_font_sizes/font_size = 40
 text = "Menu"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 1)
+z_index = 1
+position = Vector2(574, 325.5)
+scale = Vector2(0.853767, 0.624038)
+texture = ExtResource("3_cjhyn")
 
 [connection signal="pressed" from="Menu_return" to="." method="_on_menu_return_pressed"]

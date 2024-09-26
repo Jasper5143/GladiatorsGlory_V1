@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=3 uid="uid://bw8ykpuyie41l"]
+
+[ext_resource type="Texture2D" uid="uid://cnwu5e7yokpw1" path="res://Sprites/sword_cooldown_anim.png" id="1_64v1b"]
+[ext_resource type="Script" path="res://Scripts/attack_cooldown_anim.gd" id="2_uquss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad8t3"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvs78"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1vck"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0jc7"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uby3k"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skkpn"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(1024, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es6or"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(0, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1exfh"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(512, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n338g"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(1024, 1024, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36feg"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(0, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu42m"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(512, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frfjh"]
+atlas = ExtResource("1_64v1b")
+region = Rect2(1024, 1536, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcnt6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad8t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvs78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1vck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0jc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uby3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skkpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es6or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1exfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n338g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36feg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu42m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frfjh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="attack_cooldown_anim" type="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.560784)
+position = Vector2(-114, 301)
+rotation = -0.785398
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_pcnt6")
+autoplay = "default"
+script = ExtResource("2_uquss")

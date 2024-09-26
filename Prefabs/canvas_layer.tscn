@@ -1,26 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxeyismw7vacj"]
+[gd_scene load_steps=3 format=3 uid="uid://bxeyismw7vacj"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_02ye7"]
+[ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="2_63f8b"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 0
 script = ExtResource("1_02ye7")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1148.0
-offset_bottom = 642.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 244.0
+offset_bottom = 120.0
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="Control/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Score 0"
+theme_override_fonts/font = ExtResource("2_63f8b")
+theme_override_font_sizes/font_size = 55
+text = "Wave 0"
