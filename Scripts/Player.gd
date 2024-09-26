@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var attacking = false
 var cooldown_anim_prefab = null  # Declare a class variable for cooldown animation
 var last_direction = Vector2.RIGHT  # Initialize with a default direction (facing right)
+var sword_instance = null  # Declare a variable to hold the sword instance
 
 # Offset values
 var cooldown_offset_right = Vector2(30, -30)  # Offset for facing right
@@ -53,13 +54,17 @@ func _physics_process(delta):
 	# Flip character based on direction
 	anim.flip_h = (last_direction == Vector2.LEFT)
 
+	# Update sword position if it exists
+	if sword_instance != null:
+		sword_instance.position = position
+
 # Managed sword attack and cooldown animation update
 func _process(delta):
 	# Check for sword attacks
 	if Input.is_action_just_pressed("attack_right") and attacking == false:
-		var sword = sword_prefab.instantiate()
-		sword.position = position
-		get_parent().add_child(sword)
+		sword_instance = sword_prefab.instantiate()  # Instantiate the sword and store reference
+		sword_instance.position = position  # Set its initial position to the player's position
+		get_parent().add_child(sword_instance)  # Add to the same parent as the player
 		attacking = true
 		last_direction = Vector2.RIGHT  # Update last direction when attacking
 		cooldown_anim()
@@ -67,23 +72,11 @@ func _process(delta):
 		attacking = false
 
 	if Input.is_action_just_pressed("attack_left") and attacking == false:
-		var sword = sword_prefab.instantiate()
-		sword.position = position
-		sword.position.x -= 1
-		sword.scale.x = -1.000001
-		get_parent().add_child(sword)
-		attacking = true
-		last_direction = Vector2.LEFT  # Update last direction when attacking
-		cooldown_anim()
-		await get_tree().create_timer(0.5).timeout
-		attacking = false
-
-	if Input.is_action_just_pressed("attack_up") and attacking == false:
-		var sword = sword_prefab.instantiate()
-		sword.position = position
-		sword.position.x -= 1
-		sword.scale.x = -1
-		get_parent().add_child(sword)
+		sword_instance = sword_prefab.instantiate()  # Instantiate the sword and store reference
+		sword_instance.position = position  # Set its initial position to the player's position
+		sword_instance.position.x -= 1  # Adjust position for left attack
+		sword_instance.scale.x = -1.000001  # Flip the sword for left direction
+		get_parent().add_child(sword_instance)  # Add to the same parent as the player
 		attacking = true
 		last_direction = Vector2.LEFT  # Update last direction when attacking
 		cooldown_anim()
