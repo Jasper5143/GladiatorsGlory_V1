@@ -1,19 +1,17 @@
 extends CharacterBody2D
 
-#Variables
+# Variables
 @onready var cooldown_amina = preload("res://Prefabs/attack_cooldown_anim.tscn")
 @onready var sword_prefab = preload("res://Prefabs/sword.tscn")
 @onready var camera = $Camera2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var attacking = false
-
+var cooldown_anim_prefab = null  # Declare a class variable for cooldown animation
 
 func _physics_process(delta):
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -21,7 +19,8 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	#adds variable jump height
+
+	# Adds variable jump height
 	if Input.is_action_just_released("Jump"):
 		jump_cut()
 
@@ -29,12 +28,12 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
 	move_and_slide()
-	
-	#walk animation
+
+	# Walk animation
 	if velocity.x == 300 or velocity.x == -300:
 		anim.play("Running")
 	else:
@@ -46,14 +45,10 @@ func _physics_process(delta):
 		anim.flip_h = false
 	if velocity.x == -300:
 		anim.flip_h = true
-	
-func cooldown_anim():
-	var cooldown_anim_prefab = cooldown_amina.instantiate()
-	get_parent().add_child(cooldown_anim_prefab)
-	await get_tree().create_timer(0.5).timeout
-	
-#Managed sword attack
-func _process(_delta):
+
+# Managed sword attack and cooldown animation update
+func _process(delta):
+	# Check for sword attacks
 	if Input.is_action_just_pressed("attack_right") and attacking == false:
 		var sword = sword_prefab.instantiate()
 		sword.position = position
@@ -62,6 +57,7 @@ func _process(_delta):
 		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
+
 	if Input.is_action_just_pressed("attack_left") and attacking == false:
 		var sword = sword_prefab.instantiate()
 		sword.position = position
@@ -72,7 +68,7 @@ func _process(_delta):
 		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
-		
+
 	if Input.is_action_just_pressed("attack_up") and attacking == false:
 		var sword = sword_prefab.instantiate()
 		sword.position = position
@@ -83,12 +79,19 @@ func _process(_delta):
 		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
-		
-	
-#stops the jump when up is released
+
+	# Update cooldown animation position if it exists
+	if cooldown_anim_prefab != null:
+		cooldown_anim_prefab.position = position  # Continuously update its position to follow the player
+
+# Spawn cooldown animation
+func cooldown_anim():
+	cooldown_anim_prefab = cooldown_amina.instantiate()  # Store reference to the prefab
+	get_parent().add_child(cooldown_anim_prefab)  # Add to the same parent as the player
+
+# Stops the jump when up is released
 func jump_cut():
 	if velocity.y < 0:
 		velocity.y *= 0.2
-	
 
 	

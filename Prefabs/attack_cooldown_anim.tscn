@@ -97,7 +97,7 @@ animations = [{
 
 [node name="attack_cooldown_anim" type="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0.560784)
-position = Vector2(-114, 301)
+position = Vector2(494, -540)
 rotation = -0.785398
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_pcnt6")
