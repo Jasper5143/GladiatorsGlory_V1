@@ -25,11 +25,13 @@ func enemy_death():
 		wave += 1
 		_update_ui()
 		if wave == 2:
+			await get_tree().create_timer(10).timeout
 			wave_2()
 	elif kills == 7:
 		wave += 1
 		_update_ui()
 		if wave == 3:
+			await get_tree().create_timer(10).timeout
 			wave_3(locust_count)
 	elif kills == 12:
 		wave += 1

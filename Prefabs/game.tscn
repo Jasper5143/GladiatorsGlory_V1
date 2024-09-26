@@ -67,20 +67,6 @@ scale = Vector2(0.935007, 0.623077)
 texture = ExtResource("4_jjmsj")
 centered = false
 
-[node name="game_ui" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Wave" type="Label" parent="game_ui"]
-layout_mode = 0
-offset_left = -311.0
-offset_top = -156.0
-offset_right = -251.0
-offset_bottom = -133.0
-theme_override_fonts/font = ExtResource("6_2s2p5")
-
 [node name="slime" parent="." instance=ExtResource("3_c1j6r")]
 position = Vector2(-49, 273)
 
@@ -100,6 +86,16 @@ position = Vector2(403, -47)
 stream = ExtResource("7_850ex")
 volume_db = 3.962
 autoplay = true
+
+[node name="game_ui" type="CanvasLayer" parent="."]
+
+[node name="Wave" type="Label" parent="game_ui"]
+offset_left = 77.0
+offset_top = 75.0
+offset_right = 182.0
+offset_bottom = 123.0
+theme_override_fonts/font = ExtResource("6_2s2p5")
+theme_override_font_sizes/font_size = 40
 
 [connection signal="enemy_killed" from="slime" to="." method="_on_slime_enemy_killed"]
 [connection signal="enemy_killed" from="slime2" to="." method="_on_slime_enemy_killed"]
