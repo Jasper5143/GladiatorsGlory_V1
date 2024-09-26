@@ -10,6 +10,11 @@ const JUMP_VELOCITY = -700.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var attacking = false
 var cooldown_anim_prefab = null  # Declare a class variable for cooldown animation
+var last_direction = Vector2.RIGHT  # Initialize with a default direction (facing right)
+
+# Offset values
+var cooldown_offset_right = Vector2(30, -30)  # Offset for facing right
+var cooldown_offset_left = Vector2(-30, -30)  # Offset for facing left
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -28,6 +33,10 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		if direction > 0:
+			last_direction = Vector2.RIGHT  # Facing right
+		else:
+			last_direction = Vector2.LEFT  # Facing left
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -40,11 +49,9 @@ func _physics_process(delta):
 		anim.play("Idle")
 	if attacking == true:
 		anim.play("attack")
-		
-	if velocity.x == 300:
-		anim.flip_h = false
-	if velocity.x == -300:
-		anim.flip_h = true
+
+	# Flip character based on direction
+	anim.flip_h = (last_direction == Vector2.LEFT)
 
 # Managed sword attack and cooldown animation update
 func _process(delta):
@@ -54,6 +61,7 @@ func _process(delta):
 		sword.position = position
 		get_parent().add_child(sword)
 		attacking = true
+		last_direction = Vector2.RIGHT  # Update last direction when attacking
 		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
@@ -65,6 +73,7 @@ func _process(delta):
 		sword.scale.x = -1.000001
 		get_parent().add_child(sword)
 		attacking = true
+		last_direction = Vector2.LEFT  # Update last direction when attacking
 		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
@@ -76,13 +85,17 @@ func _process(delta):
 		sword.scale.x = -1
 		get_parent().add_child(sword)
 		attacking = true
+		last_direction = Vector2.LEFT  # Update last direction when attacking
 		cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
 
 	# Update cooldown animation position if it exists
 	if cooldown_anim_prefab != null:
-		cooldown_anim_prefab.position = position  # Continuously update its position to follow the player
+		if last_direction == Vector2.RIGHT:  # Facing right
+			cooldown_anim_prefab.position = position + cooldown_offset_right  # Apply right offset
+		elif last_direction == Vector2.LEFT:  # Facing left
+			cooldown_anim_prefab.position = position + cooldown_offset_left  # Apply left offset
 
 # Spawn cooldown animation
 func cooldown_anim():
@@ -94,4 +107,3 @@ func jump_cut():
 	if velocity.y < 0:
 		velocity.y *= 0.2
 
-	
