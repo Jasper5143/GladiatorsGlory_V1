@@ -8,7 +8,7 @@ func _ready():
 	$sword_sfx.play
 	rng.randomize()
 	var pitch_shift = rng.randfn(-0.1,0.1)
-	cheats = false
+	cheats = true
 	if cheats == true:
 		scale.x += 5
 		scale.y += 5

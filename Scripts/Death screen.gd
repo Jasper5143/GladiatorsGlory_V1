@@ -12,6 +12,10 @@ func _process(delta):
 
 #navigates to menus
 func _on_button_pressed():
+	AudioManager.play_sound("res://sounds/button_click.wav")
+	await get_tree().create_timer(0.01).timeout
 	get_tree().change_scene_to_file("res://Prefabs/game.tscn")
 func _on_go_to_menu_pressed():
+	AudioManager.play_sound("res://sounds/button_click.wav")
+	await get_tree().create_timer(0.01).timeout
 	get_tree().change_scene_to_file("res://Prefabs/menu.tscn")

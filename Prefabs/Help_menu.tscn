@@ -40,8 +40,8 @@ text = "Menu"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.290196, 0.290196, 0.290196, 1)
 z_index = 1
-position = Vector2(574, 325.5)
-scale = Vector2(0.853767, 0.624038)
+position = Vector2(576, 324)
+scale = Vector2(0.850812, 0.623077)
 texture = ExtResource("3_cjhyn")
 
 [connection signal="pressed" from="Menu_return" to="." method="_on_menu_return_pressed"]

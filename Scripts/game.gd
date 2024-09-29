@@ -16,6 +16,8 @@ func _process(delta):
 func _ready():
 	_update_ui()
 	$sound_track1.play()
+	$Wave_Transition.visible = false
+	$shade.visible = false
 
 #Manages all enemy deaths - updates UI and Waves
 func enemy_death():
@@ -25,13 +27,15 @@ func enemy_death():
 		wave += 1
 		_update_ui()
 		if wave == 2:
-			await get_tree().create_timer(10).timeout
+			wave_transition()
+			await get_tree().create_timer(2).timeout
 			wave_2()
 	elif kills == 7:
 		wave += 1
 		_update_ui()
 		if wave == 3:
-			await get_tree().create_timer(10).timeout
+			wave_transition()
+			await get_tree().create_timer(2).timeout
 			wave_3(locust_count)
 	elif kills == 12:
 		wave += 1
@@ -77,3 +81,11 @@ func locust_killed():
 #tells UI what to display
 func _update_ui():
 	$game_ui/Wave.text = "Wave: " + str(wave)
+
+func wave_transition():
+	$shade.visible = true
+	$Wave_Transition.visible = true
+	$Wave_Transition.text = "Wave " + str(wave -1) + " Complete! Wave " + str(wave) + " start."
+	await get_tree().create_timer(2).timeout
+	$Wave_Transition.visible = false
+	$shade.visible = false

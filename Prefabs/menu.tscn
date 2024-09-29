@@ -20,8 +20,8 @@ text = "Play"
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.290196, 0.290196, 0.290196, 1)
 show_behind_parent = true
-position = Vector2(573, 321)
-scale = Vector2(0.840473, 0.615385)
+position = Vector2(576, 324)
+scale = Vector2(0.850812, 0.623077)
 texture = ExtResource("2_ea3gt")
 
 [node name="Help" type="Button" parent="."]

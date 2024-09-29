@@ -19,8 +19,8 @@ text = "Play Again"
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.290196, 0.290196, 0.290196, 1)
 show_behind_parent = true
-position = Vector2(577, 325)
-scale = Vector2(0.852289, 0.625)
+position = Vector2(576, 324)
+scale = Vector2(0.850812, 0.623077)
 texture = ExtResource("2_txqlp")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://besojl7vkjoxk"]
+[gd_scene load_steps=13 format=3 uid="uid://besojl7vkjoxk"]
 
 [ext_resource type="PackedScene" uid="uid://ndrofknvi3dk" path="res://Prefabs/character_body_2d.tscn" id="1_cdqqj"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gfc5p"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bv7eowyskvqr3" path="res://Sprites/New Piskel (3).png" id="5_nr1v2"]
 [ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="6_2s2p5"]
 [ext_resource type="AudioStream" uid="uid://yrj4monfxfsa" path="res://Audio/Mark Wilson X - In the Hall of the Mountain King.mp3" id="7_850ex"]
+[ext_resource type="Texture2D" uid="uid://nhp5ub603x44" path="res://Sprites/Screenshot 2024-09-25 111834.png" id="9_x6irf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2qa6"]
 texture = ExtResource("2_yxac3")
@@ -62,8 +63,8 @@ motion_scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 show_behind_parent = true
-position = Vector2(12, 8)
-scale = Vector2(0.935007, 0.623077)
+position = Vector2(36, 39)
+scale = Vector2(0.921713, 0.584615)
 texture = ExtResource("4_jjmsj")
 centered = false
 
@@ -96,6 +97,26 @@ offset_right = 182.0
 offset_bottom = 123.0
 theme_override_fonts/font = ExtResource("6_2s2p5")
 theme_override_font_sizes/font_size = 40
+
+[node name="Wave_Transition" type="Label" parent="."]
+modulate = Color(0.847059, 0.847059, 0.847059, 1)
+z_index = 1
+offset_left = -351.0
+offset_top = -192.0
+offset_right = 896.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("6_2s2p5")
+theme_override_font_sizes/font_size = 60
+text = "Wave __ Complete!
+ Wave __ Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shade" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.701961)
+position = Vector2(272, 112)
+scale = Vector2(3.07389, 2.31179)
+texture = ExtResource("9_x6irf")
 
 [connection signal="enemy_killed" from="slime" to="." method="_on_slime_enemy_killed"]
 [connection signal="enemy_killed" from="slime2" to="." method="_on_slime_enemy_killed"]
