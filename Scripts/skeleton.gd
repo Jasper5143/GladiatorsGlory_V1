@@ -32,5 +32,6 @@ func shoot():
 #manages skeleton death
 func _on_area_2d_area_entered(area):
 	if area.name == "sword":
+		AudioManager.play_sound("res://Audio/bone-break-8-218516.mp3")
 		skeleton_killed.emit()
 		queue_free()

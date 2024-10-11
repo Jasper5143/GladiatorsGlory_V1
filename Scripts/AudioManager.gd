@@ -10,7 +10,10 @@ func _ready():
 
 # Function to play a sound effect
 func play_sound(sound_path: String):
-	var sound = load("res://Audio/menu-button-88360.mp3")
+	# Load the sound from the given path
+	var sound = load(sound_path) as AudioStream
 	if sound:
 		audio_player.stream = sound  # Assign it to the AudioStreamPlayer
 		audio_player.play()  # Play the sound
+	else:
+		print("Error: Could not load sound at", sound_path)

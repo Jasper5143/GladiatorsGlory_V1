@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7hghobn38dvv"]
 
-[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_vy01y"]
+[ext_resource type="Script" path="res://Scripts/win_screen.gd" id="1_htfge"]
 [ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="2_6g25w"]
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="2_txqlp"]
 
 [node name="win_screen" type="Node2D"]
-script = ExtResource("1_vy01y")
+script = ExtResource("1_htfge")
 
 [node name="play" type="Button" parent="."]
 offset_left = 436.0
@@ -40,3 +40,4 @@ theme_override_font_sizes/normal_font_size = 60
 text = "You win!"
 
 [connection signal="pressed" from="play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]

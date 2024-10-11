@@ -26,6 +26,7 @@ func _on_area_2d_body_entered(body):
 #manages slime death
 func _on_area_2d_area_entered(area):
 	if area.name == "sword":
+		AudioManager.play_sound("res://Audio/cartoon-splat-6086.mp3")
 		queue_free()
 		enemy_killed.emit()
 	
