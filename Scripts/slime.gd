@@ -1,12 +1,16 @@
 extends Node2D
 
 signal enemy_killed
-
+var rng = RandomNumberGenerator.new()
 @onready var path_follow : PathFollow2D = $Path2D/PathFollow2D
 #speed in px per second
 @export var speed = 100
 #kills player (sends to death screen)
 @onready var slime_anim: AnimatedSprite2D = $Path2D/PathFollow2D/Area2D/AnimatedSprite2D
+
+func _ready():
+	rng.randomize()
+	path_follow.progress = rng.randfn(0,100)
 
 #flips sprite when direction changes
 func _process(delta: float) -> void:

@@ -41,7 +41,16 @@ func enemy_death():
 		wave += 1
 		_update_ui()
 		if wave ==4:
+			wave_transition()
+			await get_tree().create_timer(2).timeout
 			wave_4()
+	elif kills == 16:
+		wave += 1
+		_update_ui()
+		if wave == 5:
+			wave_transition()
+			await get_tree().create_timer(2).timeout
+			wave_5()
 
 #spawns skeletons
 func wave_2():
@@ -65,9 +74,40 @@ func wave_3(count):
 	
 #Player wins
 func wave_4():
-	print("wave 4 start")
-	get_tree().change_scene_to_file("res://Prefabs/win_screen.tscn")
+	var skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(-220, -86)
 	
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(773, -86)
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(-324, 360)
+	
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(866, 360)
+
+func wave_5():
+	print("wave 5 start")
+	
+
+
+
+func game_complete():
+	print("win")
+	get_tree().change_scene_to_file("res://Prefabs/win_screen.tscn")
+
+
+
+
+
+
 
 func _on_slime_enemy_killed():
 	enemy_death()

@@ -59,12 +59,13 @@ layer_0/tile_data = PackedInt32Array(786420, 3, 1, 720884, 3, 1, 655348, 3, 1, 5
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-1, 0)
 motion_scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 show_behind_parent = true
-position = Vector2(36, 39)
-scale = Vector2(0.921713, 0.584615)
+position = Vector2(-27, -25)
+scale = Vector2(1.01625, 0.707692)
 texture = ExtResource("4_jjmsj")
 centered = false
 
@@ -114,8 +115,8 @@ vertical_alignment = 1
 
 [node name="shade" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.701961)
-position = Vector2(272, 112)
-scale = Vector2(3.07389, 2.31179)
+position = Vector2(271.5, 112)
+scale = Vector2(3.3867, 2.79848)
 texture = ExtResource("9_x6irf")
 
 [connection signal="enemy_killed" from="slime" to="." method="_on_slime_enemy_killed"]
