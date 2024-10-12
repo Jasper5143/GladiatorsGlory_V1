@@ -8,7 +8,8 @@ func _process(delta):
 	position += direction * speed 
 	
 
-
+func _ready():
+	AudioManager.play_sound("res://Audio/whoosh-transitions-sfx-01-118227.mp3")
 
 #manages collision with map and player
 func _on_area_2d_body_entered(body):

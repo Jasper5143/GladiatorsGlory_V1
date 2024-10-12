@@ -11,6 +11,8 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	path_follow.progress = rng.randfn(0,100)
+	AudioManager.play_sound("res://Audio/squelch-106250.mp3")
+
 
 #flips sprite when direction changes
 func _process(delta: float) -> void:
