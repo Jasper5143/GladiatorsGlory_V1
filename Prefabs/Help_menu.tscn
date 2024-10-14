@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn1auljxmeoxs"]
+[gd_scene load_steps=6 format=3 uid="uid://bn1auljxmeoxs"]
 
 [ext_resource type="Script" path="res://Scripts/Help_menu.gd" id="1_am8ld"]
 [ext_resource type="FontFile" uid="uid://crwouq0ifsb4x" path="res://Sprites/AncientModernTales-a7Po.ttf" id="2_1fy6q"]
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="3_cjhyn"]
+[ext_resource type="AudioStream" uid="uid://ctmvpoenje40q" path="res://Audio/The Adventure Zone_ The Eleventh Hour OST - The Chalice.mp3" id="4_hx5v2"]
+[ext_resource type="AudioStream" uid="uid://cykwecd55cb1u" path="res://Audio/The Adventure Zone_ The Eleventh Hour OST - Disrobed.mp3" id="5_c1xk2"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_am8ld")
@@ -52,6 +54,12 @@ theme_override_fonts/font = ExtResource("2_1fy6q")
 theme_override_font_sizes/font_size = 35
 text = "Toggle Cheats
  (not recomended for normal playthough)"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hx5v2")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_c1xk2")
 
 [connection signal="pressed" from="Menu_return" to="." method="_on_menu_return_pressed"]
 [connection signal="pressed" from="cheat_button" to="." method="_on_cheat_button_pressed"]

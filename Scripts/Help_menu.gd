@@ -1,5 +1,10 @@
 extends Node2D
 
+func _ready():
+	$AudioStreamPlayer2D2.play()
+	await get_tree().create_timer(83).timeout
+	$AudioStreamPlayer2D.play()
+	
 
 
 
