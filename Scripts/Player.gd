@@ -65,9 +65,11 @@ func _process(delta):
 		sword_instance = sword_prefab.instantiate()  # Instantiate the sword and store reference
 		sword_instance.position = position  # Set its initial position to the player's position
 		get_parent().add_child(sword_instance)  # Add to the same parent as the player
-		attacking = true
+		if Cheats.cheats_enabled == false:
+			attacking = true
 		last_direction = Vector2.RIGHT  # Update last direction when attacking
-		cooldown_anim()
+		if Cheats.cheats_enabled == false:
+			cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
 
@@ -77,9 +79,11 @@ func _process(delta):
 		sword_instance.position.x -= 1  # Adjust position for left attack
 		sword_instance.scale.x = -1.000001  # Flip the sword for left direction
 		get_parent().add_child(sword_instance)  # Add to the same parent as the player
-		attacking = true
+		if Cheats.cheats_enabled == false:
+			attacking = true
 		last_direction = Vector2.LEFT  # Update last direction when attacking
-		cooldown_anim()
+		if Cheats.cheats_enabled == false:
+			cooldown_anim()
 		await get_tree().create_timer(0.5).timeout
 		attacking = false
 

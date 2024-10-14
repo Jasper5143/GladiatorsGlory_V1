@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_8mhh0"]
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="2_ea3gt"]
-[ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="2_il7lr"]
+[ext_resource type="FontFile" uid="uid://crwouq0ifsb4x" path="res://Sprites/AncientModernTales-a7Po.ttf" id="2_wefvw"]
 [ext_resource type="Texture2D" uid="uid://nhp5ub603x44" path="res://Sprites/Screenshot 2024-09-25 111834.png" id="4_7iwdq"]
 
 [node name="Menu" type="Node2D"]
@@ -13,7 +13,7 @@ offset_left = 495.0
 offset_top = 209.0
 offset_right = 672.0
 offset_bottom = 273.0
-theme_override_fonts/font = ExtResource("2_il7lr")
+theme_override_fonts/font = ExtResource("2_wefvw")
 theme_override_font_sizes/font_size = 40
 text = "Play"
 
@@ -29,7 +29,7 @@ offset_left = 502.0
 offset_top = 306.0
 offset_right = 671.0
 offset_bottom = 400.0
-theme_override_fonts/font = ExtResource("2_il7lr")
+theme_override_fonts/font = ExtResource("2_wefvw")
 theme_override_font_sizes/font_size = 40
 text = "Help"
 
@@ -39,9 +39,10 @@ offset_left = 350.0
 offset_top = 100.0
 offset_right = 855.0
 offset_bottom = 160.0
-theme_override_fonts/font = ExtResource("2_il7lr")
+theme_override_fonts/font = ExtResource("2_wefvw")
 theme_override_font_sizes/font_size = 60
 text = "Gladiator's Glory"
+horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.647059)

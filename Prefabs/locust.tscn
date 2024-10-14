@@ -1,10 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://hbx0tcgb0thk"]
+[gd_scene load_steps=9 format=3 uid="uid://hbx0tcgb0thk"]
 
 [ext_resource type="Script" path="res://Scripts/Locust.gd" id="1_vg8vl"]
-[ext_resource type="Texture2D" uid="uid://c7xgsafitbpat" path="res://Sprites/Screenshot 2024-07-29 204915-1.png.png" id="2_qcrlu"]
+[ext_resource type="Texture2D" uid="uid://cemnbcqo8r4p6" path="res://Sprites/animated_locust.png" id="3_5r8qx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y507b"]
 size = Vector2(24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uncdy"]
+atlas = ExtResource("3_5r8qx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug4rg"]
+atlas = ExtResource("3_5r8qx")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqg0i"]
+atlas = ExtResource("3_5r8qx")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu1hu"]
+atlas = ExtResource("3_5r8qx")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cs7v2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uncdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug4rg")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqg0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu1hu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
 
 [node name="Locust" type="Node2D"]
 scale = Vector2(3, 3)
@@ -16,9 +57,13 @@ script = ExtResource("1_vg8vl")
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_y507b")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("2_qcrlu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 0.333333)
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_cs7v2")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.757913
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

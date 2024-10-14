@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bn1auljxmeoxs"]
 
 [ext_resource type="Script" path="res://Scripts/Help_menu.gd" id="1_am8ld"]
-[ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="2_txsks"]
+[ext_resource type="FontFile" uid="uid://crwouq0ifsb4x" path="res://Sprites/AncientModernTales-a7Po.ttf" id="2_1fy6q"]
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="3_cjhyn"]
 
 [node name="Node2D" type="Node2D"]
@@ -9,28 +9,28 @@ script = ExtResource("1_am8ld")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = 2
-offset_left = 203.0
-offset_top = 67.0
-offset_right = 1059.0
-offset_bottom = 332.0
+offset_left = 178.0
+offset_top = 86.0
+offset_right = 1034.0
+offset_bottom = 403.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("2_txsks")
+theme_override_fonts/normal_font = ExtResource("2_1fy6q")
 theme_override_font_sizes/normal_font_size = 30
 text = "You have only one life. Don't get hit. Kill all enemies to progress to the next wave. Complete all waves to gain your deserved Glory.
 Controls:
 Arrow keys: Movement
-W: Attack up
 A: Attack left
-D: attack right"
+D: attack right
+The game is intended to be difficult. If you find it too hard, enable cheats to finish the game. Cheats will make you invincible and remove attack cooldown."
 
 [node name="Menu_return" type="Button" parent="."]
 z_index = 2
-offset_left = 504.0
-offset_top = 369.0
-offset_right = 649.0
-offset_bottom = 427.0
-theme_override_fonts/font = ExtResource("2_txsks")
+offset_left = 215.0
+offset_top = 465.0
+offset_right = 343.0
+offset_bottom = 517.0
+theme_override_fonts/font = ExtResource("2_1fy6q")
 theme_override_font_sizes/font_size = 40
 text = "Menu"
 
@@ -40,5 +40,18 @@ z_index = 1
 position = Vector2(576, 324)
 scale = Vector2(0.850812, 0.623077)
 texture = ExtResource("3_cjhyn")
+metadata/_edit_lock_ = true
+
+[node name="cheat_button" type="Button" parent="."]
+z_index = 1
+offset_left = 449.0
+offset_top = 453.0
+offset_right = 1087.0
+offset_bottom = 541.0
+theme_override_fonts/font = ExtResource("2_1fy6q")
+theme_override_font_sizes/font_size = 35
+text = "Toggle Cheats
+ (not recomended for normal playthough)"
 
 [connection signal="pressed" from="Menu_return" to="." method="_on_menu_return_pressed"]
+[connection signal="pressed" from="cheat_button" to="." method="_on_cheat_button_pressed"]

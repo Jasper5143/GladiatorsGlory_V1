@@ -11,7 +11,6 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	path_follow.progress = rng.randfn(0,100)
-	AudioManager.play_sound("res://Audio/squelch-106250.mp3")
 
 
 #flips sprite when direction changes
@@ -25,7 +24,7 @@ func _process(delta: float) -> void:
 
 #manages player death
 func _on_area_2d_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" and Cheats.cheats_enabled == false:
 		get_tree().change_scene_to_file("res://Prefabs/death_screen.tscn")
 	
 

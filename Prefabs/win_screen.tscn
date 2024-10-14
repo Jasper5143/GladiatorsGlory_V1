@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7hghobn38dvv"]
 
 [ext_resource type="Script" path="res://Scripts/win_screen.gd" id="1_htfge"]
-[ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="2_6g25w"]
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="2_txqlp"]
+[ext_resource type="FontFile" uid="uid://crwouq0ifsb4x" path="res://Sprites/AncientModernTales-a7Po.ttf" id="2_wfv5v"]
 
 [node name="win_screen" type="Node2D"]
 script = ExtResource("1_htfge")
@@ -12,7 +12,7 @@ offset_left = 436.0
 offset_top = 275.0
 offset_right = 740.0
 offset_bottom = 323.0
-theme_override_fonts/font = ExtResource("2_6g25w")
+theme_override_fonts/font = ExtResource("2_wfv5v")
 theme_override_font_sizes/font_size = 40
 text = "Play Again"
 
@@ -35,7 +35,7 @@ offset_right = 722.0
 offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_6g25w")
+theme_override_fonts/normal_font = ExtResource("2_wfv5v")
 theme_override_font_sizes/normal_font_size = 60
 text = "You win!"
 

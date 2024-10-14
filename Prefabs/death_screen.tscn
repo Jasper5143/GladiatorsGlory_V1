@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Death screen.gd" id="1_r8fs5"]
 [ext_resource type="AudioStream" uid="uid://de7itrxyq16ka" path="res://Audio/pixel-death-66829.mp3" id="2_1hoii"]
 [ext_resource type="Texture2D" uid="uid://ctc2tlm7j54u6" path="res://Sprites/Screenshot 2024-06-20 190713.png" id="2_ihx4o"]
-[ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="3_7lcox"]
+[ext_resource type="FontFile" uid="uid://crwouq0ifsb4x" path="res://Sprites/AncientModernTales-a7Po.ttf" id="3_3l3bm"]
 
 [node name="Death screen" type="Node2D"]
 script = ExtResource("1_r8fs5")
@@ -19,16 +19,16 @@ offset_left = 458.0
 offset_top = 336.0
 offset_right = 695.0
 offset_bottom = 421.0
-theme_override_fonts/font = ExtResource("3_7lcox")
+theme_override_fonts/font = ExtResource("3_3l3bm")
 theme_override_font_sizes/font_size = 40
 text = "Respawn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 444.0
-offset_top = 171.0
-offset_right = 696.0
-offset_bottom = 248.0
-theme_override_fonts/normal_font = ExtResource("3_7lcox")
+offset_left = 492.0
+offset_top = 166.0
+offset_right = 658.0
+offset_bottom = 243.0
+theme_override_fonts/normal_font = ExtResource("3_3l3bm")
 theme_override_font_sizes/normal_font_size = 60
 text = "You died"
 tab_size = 5
@@ -38,7 +38,7 @@ offset_left = 460.0
 offset_top = 445.0
 offset_right = 696.0
 offset_bottom = 514.0
-theme_override_fonts/font = ExtResource("3_7lcox")
+theme_override_fonts/font = ExtResource("3_3l3bm")
 theme_override_font_sizes/font_size = 40
 text = "Menu"
 

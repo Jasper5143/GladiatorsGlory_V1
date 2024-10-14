@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Global.gd"
 AudioManager="*res://Prefabs/audio_manager.tscn"
+Cheats="*res://Scripts/cheats.gd"
 
 [display]
 
@@ -49,4 +50,4 @@ Jump={
 
 [physics]
 
-2d/default_gravity=1900.0
+2d/default_gravity=1600.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://besojl7vkjoxk"]
+[gd_scene load_steps=14 format=3 uid="uid://besojl7vkjoxk"]
 
 [ext_resource type="PackedScene" uid="uid://ndrofknvi3dk" path="res://Prefabs/character_body_2d.tscn" id="1_cdqqj"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_gfc5p"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bv7eowyskvqr3" path="res://Sprites/New Piskel (3).png" id="5_nr1v2"]
 [ext_resource type="FontFile" uid="uid://cj751rqx4321p" path="res://Sprites/PixelFraktur.ttf" id="6_2s2p5"]
 [ext_resource type="AudioStream" uid="uid://yrj4monfxfsa" path="res://Audio/Mark Wilson X - In the Hall of the Mountain King.mp3" id="7_850ex"]
+[ext_resource type="FontFile" uid="uid://crwouq0ifsb4x" path="res://Sprites/AncientModernTales-a7Po.ttf" id="8_qwtyi"]
 [ext_resource type="Texture2D" uid="uid://nhp5ub603x44" path="res://Sprites/Screenshot 2024-09-25 111834.png" id="9_x6irf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2qa6"]
@@ -91,13 +92,22 @@ autoplay = true
 
 [node name="game_ui" type="CanvasLayer" parent="."]
 
+[node name="UI_shade" type="Sprite2D" parent="game_ui"]
+self_modulate = Color(1, 1, 1, 0.709804)
+position = Vector2(148, 91)
+scale = Vector2(0.438424, 0.26616)
+texture = ExtResource("9_x6irf")
+
 [node name="Wave" type="Label" parent="game_ui"]
-offset_left = 77.0
-offset_top = 75.0
-offset_right = 182.0
-offset_bottom = 123.0
-theme_override_fonts/font = ExtResource("6_2s2p5")
-theme_override_font_sizes/font_size = 40
+z_index = 2
+offset_left = 59.0
+offset_top = 56.0
+offset_right = 235.0
+offset_bottom = 125.0
+theme_override_fonts/font = ExtResource("8_qwtyi")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Wave_Transition" type="Label" parent="."]
 modulate = Color(0.847059, 0.847059, 0.847059, 1)
@@ -115,7 +125,7 @@ vertical_alignment = 1
 
 [node name="shade" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.701961)
-position = Vector2(271.5, 112)
+position = Vector2(272, 108)
 scale = Vector2(3.3867, 2.79848)
 texture = ExtResource("9_x6irf")
 
