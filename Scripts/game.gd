@@ -18,6 +18,8 @@ func _ready():
 	$sound_track1.play()
 	$Wave_Transition.visible = false
 	$shade.visible = false
+	await get_tree().create_timer(98.51).timeout
+	$sound_track1.play()
 
 #Manages all enemy deaths - updates UI and Waves
 func enemy_death():
@@ -51,18 +53,20 @@ func enemy_death():
 			wave_transition()
 			await get_tree().create_timer(2).timeout
 			wave_5()
+	elif kills == 26:
+		game_complete()
 
 #spawns skeletons
 func wave_2():
 	var skeleton = skeleton_prefab.instantiate()
 	add_child(skeleton)
 	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
-	skeleton.position = Vector2(-220, -86)
+	skeleton.position = Vector2(-200, -86)
 	
 	skeleton = skeleton_prefab.instantiate()
 	add_child(skeleton)
 	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
-	skeleton.position = Vector2(773, -86)
+	skeleton.position = Vector2(754, -86)
 
 #spawns locusts
 func wave_3(count):
@@ -77,12 +81,12 @@ func wave_4():
 	var skeleton = skeleton_prefab.instantiate()
 	add_child(skeleton)
 	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
-	skeleton.position = Vector2(-220, -86)
+	skeleton.position = Vector2(-200, -86)
 	
 	skeleton = skeleton_prefab.instantiate()
 	add_child(skeleton)
 	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
-	skeleton.position = Vector2(773, -86)
+	skeleton.position = Vector2(754, -86)
 	skeleton = skeleton_prefab.instantiate()
 	add_child(skeleton)
 	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
@@ -95,7 +99,59 @@ func wave_4():
 
 func wave_5():
 	print("wave 5 start")
+	var skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(273, 103)
 	
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(775, 73)
+	
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(-221, 74)
+	
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(-200, -87)
+	
+	skeleton = skeleton_prefab.instantiate()
+	add_child(skeleton)
+	skeleton.connect("skeleton_killed", Callable(self, "skeleton_killed"))
+	skeleton.position = Vector2(754, -87)
+
+	var slime = slime_prefab.instantiate()
+	add_child(slime)
+	slime.connect("enemy_killed", Callable(self, "_on_slime_enemy_killed"))
+	slime.position = Vector2(180, 400)
+	
+	slime = slime_prefab.instantiate()
+	add_child(slime)
+	slime.connect("enemy_killed", Callable(self, "_on_slime_enemy_killed"))
+	slime.position = Vector2(-49, 273)
+	
+	slime = slime_prefab.instantiate()
+	add_child(slime)
+	slime.connect("enemy_killed", Callable(self, "_on_slime_enemy_killed"))
+	slime.position = Vector2(427, 273)
+	
+	slime = slime_prefab.instantiate()
+	add_child(slime)
+	slime.connect("enemy_killed", Callable(self, "_on_slime_enemy_killed"))
+	slime.position = Vector2(-36, -47)
+	
+	slime = slime_prefab.instantiate()
+	add_child(slime)
+	slime.connect("enemy_killed", Callable(self, "_on_slime_enemy_killed"))
+	slime.position = Vector2(403, -47)
+
+
+
+
 
 
 

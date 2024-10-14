@@ -18,3 +18,7 @@ func _on_help_pressed():
 	AudioManager.play_sound("res://Audio/menu-button-88360.mp3")
 	await get_tree().create_timer(0.01).timeout
 	get_tree().change_scene_to_file("res://Prefabs/Help_menu.tscn")
+
+
+func _on_easter_egg_pressed():
+	pass # Replace with function body.

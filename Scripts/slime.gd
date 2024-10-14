@@ -32,6 +32,6 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_area_entered(area):
 	if area.name == "sword":
 		AudioManager.play_sound("res://Audio/cartoon-splat-6086.mp3")
+		emit_signal("enemy_killed")  # Correct way to emit the signal
 		queue_free()
-		enemy_killed.emit()
 	
